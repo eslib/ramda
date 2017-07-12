@@ -1,0 +1,50 @@
+{
+  "name": "@eslib/ramda",
+  "version": "0.1.0",
+  "description": "(Ramda + ESlib = <3) All the Ramda functions available natively",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "npm run clean && tsc -d && ./scripts/template.js",
+    "clean": "rm -rf dist",
+    "lint": "tslint .",
+    "prepublish": "npm run lint && npm test",
+    "pretest": "npm run build",
+    "tdd": "concurrently -kr 'npm run watch' 'ava -w'",
+    "test": "ava",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eslib/ramda.git"
+  },
+  "author": "Boris Cherny <boris@performancejs.com> (https://performancejs.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eslib/ramda/issues"
+  },
+  "homepage": "https://github.com/eslib/ramda#readme",
+  "devDependencies": {
+    "@types/ramda": "^0.24.3",
+    "ava": "^0.20.0",
+    "concurrently": "^3.5.0",
+    "lodash": "^4.17.4",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.1"
+  },
+  "dependencies": {
+    "eslib": "^0.1.2",
+    "ramda": "^0.24.1"
+  },
+  "ava": {
+    "files": [
+      "dist/test/*.js"
+    ],
+    "source": [
+      "dist/src/*.js"
+    ]
+  }
+}
